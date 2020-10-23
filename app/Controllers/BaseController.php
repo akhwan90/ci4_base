@@ -40,8 +40,18 @@ class BaseController extends Controller
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.:
-		$this->session = \Config\Services::session($config);
+		$this->session = \Config\Services::session();
 		$this->db = \Config\Database::connect();
+		$this->validation = \Config\Services::validation();
+
+		$this->jenis_soal = [
+			'A1'=>['jenis'=>'A','bagian'=>1,'jml_soal'=>0,'jml_harus_jawab'=>1,'jml_opsi'=>6,'multi_kunci'=>false],
+			'A2'=>['jenis'=>'A','bagian'=>2,'jml_soal'=>0,'jml_harus_jawab'=>2,'jml_opsi'=>5,'multi_kunci'=>false],
+			'A3'=>['jenis'=>'A','bagian'=>3,'jml_soal'=>0,'jml_harus_jawab'=>1,'jml_opsi'=>6,'multi_kunci'=>false],
+			'A4'=>['jenis'=>'A','bagian'=>4,'jml_soal'=>0,'jml_harus_jawab'=>1,'jml_opsi'=>5,'multi_kunci'=>false],
+			'B1'=>['jenis'=>'B','bagian'=>1,'jml_soal'=>0,'jml_harus_jawab'=>1,'jml_opsi'=>5,'multi_kunci'=>false],
+			'B2'=>['jenis'=>'B','bagian'=>2,'jml_soal'=>0,'jml_harus_jawab'=>1,'jml_opsi'=>5,'multi_kunci'=>false]
+		];
 	}
 
 }

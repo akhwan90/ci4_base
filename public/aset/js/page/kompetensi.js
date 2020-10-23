@@ -1,19 +1,8 @@
-const uri_modul = base_url + 'index.php/barang/';
+const uri_modul = base_url + '/admin/kompetensi/';
 
 function dt() {
     pagination("datatabel", uri_modul + "datatabel", [], 50);
 }
-
-
-$('#harga_beli, #harga_jual, #stok').keyup(function(event) {
-	if(event.which >= 37 && event.which <= 40) return;
-	$(this).val(function(index, value) {
-		return value
-		.replace(/\D/g, "")
-		.replace(/\B(?=(\d{3})+(?!\d))/g, ".")
-		;
-	});
-});
 
 dt();
 
@@ -36,7 +25,7 @@ function simpan() {
 	        }
 	    },
 	    error: function(xhr) {
-			$("#mdl_edit_form input, select, button").attr("disabled", true);
+			$("#mdl_edit_form input, select, button").attr("disabled", false);
 			console.log(xhr)
 	    }
 	});
@@ -51,15 +40,11 @@ function edit(id) {
 		$("#_id").val(0);
 		$("#_mode").val('add');
 		$("#nama").val('');
-		$("#satuan").val('');
-		$("#stok").val('');
-		$("#harga_beli").val('');
-		$("#harga_jual").val('');
 	} else {
 		$.ajax({
 		    type: "POST",
 		    data: {id: id},
-		    url: uri_modul + "detil/",
+		    url: uri_modul + "detil",
 		    beforeSend: function(){
 				$("#mdl_edit_form input, select, button").attr("disabled", true);
 			},
@@ -71,10 +56,6 @@ function edit(id) {
 					$("#_id").val(r.results.id);
 					$("#_mode").val('edit');
 					$("#nama").val(r.results.nama);
-					$("#satuan").val(r.results.satuan);
-					$("#stok").val(r.results.stok);
-					$("#harga_beli").val(r.results.harga_beli);
-					$("#harga_jual").val(r.results.harga_jual);
 		        }
 		    },
 		    error: function(xhr) {

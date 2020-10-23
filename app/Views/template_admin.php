@@ -10,6 +10,7 @@ echo view('layout/sidebar');
 echo view('page/'.$p);
 echo '</div>';
 
+echo view('layout/script_bawah');
 echo '</body>';
 
 

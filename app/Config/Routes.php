@@ -20,7 +20,8 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
+// $routes->setAutoRoute(true);
 
 /**
  * --------------------------------------------------------------------
@@ -30,9 +31,50 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Auth::index', ['filter'=>'auto_login']);
 
-$routes->get('/auth', 'Auth::index');
+$routes->get('/auth', 'Auth::index', ['filter'=>'auto_login']);
+$routes->post('/auth/login', 'Auth::login');
+$routes->get('/logout', 'Auth::logout');
+
+$routes->group('/admin', ['filter'=>'cek_login'], function($routes) {
+    $routes->add('dashboard', 'Admin\Dashboard::index');
+
+    $routes->group('aspek', function($routes) {	
+	    $routes->get('', 'Admin\Aspek::index');
+	    $routes->post('datatabel', 'Admin\Aspek::datatabel');
+	    $routes->post('detil', 'Admin\Aspek::detil');
+	    $routes->post('simpan', 'Admin\Aspek::simpan');
+	    $routes->post('hapus', 'Admin\Aspek::hapus');
+    });
+
+    $routes->group('kompetensi', function($routes) {	
+	    $routes->get('', 'Admin\Kompetensi::index');
+	    $routes->post('datatabel', 'Admin\Kompetensi::datatabel');
+	    $routes->post('detil', 'Admin\Kompetensi::detil');
+	    $routes->post('simpan', 'Admin\Kompetensi::simpan');
+	    $routes->post('hapus', 'Admin\Kompetensi::hapus');
+    });
+
+    $routes->group('peserta', function($routes) {	
+	    $routes->get('', 'Admin\Peserta::index');
+	    $routes->post('datatabel', 'Admin\Peserta::datatabel');
+	    $routes->post('detil', 'Admin\Peserta::detil');
+	    $routes->post('simpan', 'Admin\Peserta::simpan');
+	    $routes->post('hapus', 'Admin\Peserta::hapus');
+    });
+
+    $routes->group('soal', function($routes) {	
+	    $routes->get('', 'Admin\Soal::index');
+	    $routes->get('detil_per_jenis/(:alpha)/(:num)', 'Admin\Soal::detil_per_jenis/$1/$2');
+	    $routes->get('form_soal/(:alpha)/(:num)/(:num)', 'Admin\Soal::form_soal/$1/$2/$3');
+	    $routes->post('form_soal_save', 'Admin\Soal::form_soal_save');
+	    $routes->post('datatabel/(:alpha)/(:num)', 'Admin\Soal::datatabel_detil_jenis/$1/$2');
+	    $routes->post('hapus', 'Admin\Soal::hapus');
+    });
+});
+
+// $routes->get('/dashboard', 'Admin::dashboard', ['filter'=>'cek_login']);
 
 
 

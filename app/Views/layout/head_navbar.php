@@ -14,7 +14,7 @@
 	</ul>
 	<ul class="nav navbar-nav ml-auto">
 		<?php 
-		if (session('is_logged')) {
+		if (session('is_login')) {
 		?>
 		<li class="nav-item d-md-down-none">
 			<a class="nav-link" href="#">
@@ -23,16 +23,16 @@
 		</li>
 		<li class="nav-item dropdown">
 			<a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-				<img class="img-avatar" src="<?=base_url('aset/');?>img/avatars/9.png" alt="admin@bootstrapmaster.com">
+				<img class="img-avatar" src="<?=base_url();?>/public/aset/img/avatars/9.png" alt="admin@bootstrapmaster.com">
 			</a>
 			<div class="dropdown-menu dropdown-menu-right">
 				<div class="dropdown-header text-center">
-					<strong><?=$this->session->userdata('nama');?></strong>
+					<strong><?=session('nama');?></strong>
 				</div>
 
-				<a class="dropdown-item" href="<?=base_url('index.php/auth/profile');?>">
+				<a class="dropdown-item" href="<?=base_url('auth/profile');?>">
 					<i class="fa fa-user"></i> Profile</a>
-				<a class="dropdown-item" href="<?=base_url('index.php/auth/logout');?>">
+		  		<a class="dropdown-item" href="<?=base_url('logout');?>">
 					<i class="fa fa-lock"></i> Logout</a>
 			</div>
 		</li>

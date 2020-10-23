@@ -7,32 +7,10 @@
                     <i class="nav-icon icon-speedometer"></i> Dashboard
                 </a>
             </li>
-            <?php 
-            if ($this->session->userdata('level') == 1) {
-                ?>
-                <li class="nav-item open">
-                    <a class="nav-link" href="<?=base_url('index.php/adm/aktifitas');?>">
-                        <i class="nav-icon fa fa-th-list"></i> Aktifitas
-                    </a>
-                </li>
-            <?php } ?>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('index.php/barang');?>">
-                    <i class="nav-icon fa fa-folder"></i> Data Barang
+            <li class="nav-item open">
+                <a class="nav-link" href="<?=base_url('index.php/adm/aktifitas');?>">
+                    <i class="nav-icon fa fa-th-list"></i> Aktifitas
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('index.php/transaksi_in');?>">
-                    <i class="nav-icon fa fa-random"></i> Barang Masuk
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('index.php/transaksi_out');?>">
-                <i class="nav-icon fa fa-random"></i> Transaksi Keluar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?=base_url('index.php/laporan');?>">
-                <i class="nav-icon fa fa-print"></i> Laporan</a>
             </li>
         </ul>
     </nav>

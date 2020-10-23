@@ -11,26 +11,13 @@ class Auth extends BaseController {
 		return view('login', $d);
 	}
 
-	public function dashboard() {
-		cek_login();
-
-		$d['p'] = 'dashboard';
-		return view('template_admin', $d);
-	}
-
-	public function d2() {
-		cek_login();
-
-	}
-
 	public function logout() {
 		$this->session->destroy();
-		return redirect()->to('index');
+		return redirect()->to('auth');
 	}
 
 	public function login() {
 		$var_post = $this->request->getPost();
-
 
 		$builder = $this->db->table('admins');
 		$builder->where('username', $var_post['usernames']);
@@ -44,12 +31,12 @@ class Auth extends BaseController {
 				$newdata['is_login'] = true;
 				$this->session->set($newdata);
 
-				return redirect()->to('dashboard');
+				return redirect()->to(base_url('admin/dashboard'));
 			} else {
 				return redirect()->back()->with('error_login', '<div class="alert alert-danger">Login gagal (2)</div>');
 			}
 		} else {
-			return redirect()->back()->with('error_login', '<div class="alert alert-danger">Login gagal (2)</div>');
+			return redirect()->back()->with('error_login', '<div class="alert alert-danger">Login gagal (1)</div>');
 		}
 	}
 

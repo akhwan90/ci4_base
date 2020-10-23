@@ -3,40 +3,29 @@
 		<ul class="nav">
 			<li class="nav-title">Menu Admin</li>
 			<li class="nav-item open">
-				<a class="nav-link" href="<?=base_url('index.php/adm');?>">
+				<a class="nav-link" href="<?=base_url('admin/dashboard');?>">
 					<i class="nav-icon icon-speedometer"></i> Dashboard
 				</a>
 			</li>
-			<?php 
-			if (session('level') == 1) {
-				?>
-				<li class="nav-item open">
-					<a class="nav-link" href="<?=base_url('index.php/adm/aktifitas');?>">
-						<i class="nav-icon fa fa-th-list"></i> Aktifitas
-					</a>
-				</li>
-			<?php } ?>
-			<li class="nav-item">
-				<a class="nav-link" href="<?=base_url('index.php/barang');?>">
-					<i class="nav-icon fa fa-folder"></i> Data Barang
+			<li class="nav-item open">
+				<a class="nav-link" href="<?=base_url('admin/aspek');?>">
+					<i class="nav-icon fa fa-th-list"></i> Aspek
 				</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?=base_url('index.php/transaksi_in');?>">
-					<i class="nav-icon fa fa-random"></i> Barang Masuk
+			<li class="nav-item open">
+				<a class="nav-link" href="<?=base_url('admin/kompetensi');?>">
+					<i class="nav-icon fa fa-th-list"></i> Kompetensi
 				</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?=base_url('index.php/transaksi_out');?>">
-				<i class="nav-icon fa fa-random"></i> Transaksi Keluar</a>
+			<li class="nav-item open">
+				<a class="nav-link" href="<?=base_url('admin/peserta');?>">
+					<i class="nav-icon fa fa-users"></i> Peserta
+				</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?=base_url('index.php/laporan');?>">
-				<i class="nav-icon fa fa-print"></i> Laporan</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?=base_url('index.php/adm/setting_toko');?>">
-				<i class="nav-icon fa fa-wrench"></i> Setting Toko</a>
+			<li class="nav-item open">
+				<a class="nav-link" href="<?=base_url('admin/soal');?>">
+					<i class="nav-icon fa fa-edit"></i> Soal
+				</a>
 			</li>
 		</ul>
 	</nav>

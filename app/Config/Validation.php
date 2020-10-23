@@ -17,6 +17,7 @@ class Validation
 		\CodeIgniter\Validation\FormatRules::class,
 		\CodeIgniter\Validation\FileRules::class,
 		\CodeIgniter\Validation\CreditCardRules::class,
+		\Myth\Auth\Authentication\Passwords\ValidationRules::class,
 	];
 
 	/**
@@ -33,4 +34,73 @@ class Validation
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
+	//
+	
+	public $aspek = [
+		'nama' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $aspek_errors = [
+		'nama' => [
+			'required' =>'Nama Harus Diisi',
+		],
+	];
+
+	// KOMPETENSI
+	public $kompetensi = [
+		'nama' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $kompetensi_errors = [
+		'nama' => [
+			'required' =>'Nama Harus Diisi',
+		],
+	];
+
+	// PESERTA
+	public $peserta = [
+		'nama' => [
+			'rules' => 'required',
+		],
+		'nomor' => [
+			'rules' => 'required',
+		],
+		'level_test' => [
+			'rules' => 'required',
+		],
+		'usia' => [
+			'rules' => 'required',
+		],
+		'jenis_kelamin' => [
+			'rules' => 'required',
+		],
+		'pendidikan' => [
+			'rules' => 'required',
+		],
+	];
+
+	public $peserta_errors = [
+		'nama' => [
+			'required' =>'Nama Harus Diisi',
+		],
+		'nomor' => [
+			'required' =>'Nomor Harus Diisi',
+		],
+		'level_test' => [
+			'required' =>'Level Test Harus Diisi',
+		],
+		'usia' => [
+			'required' =>'Usia Harus Diisi',
+		],
+		'jenis_kelamin' => [
+			'required' =>'Jenis Kelamin Harus Diisi',
+		],
+		'pendidikan' => [
+			'required' =>'Pendidikan Harus Diisi',
+		],
+	];
 }
